@@ -1,4 +1,9 @@
 
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
+
 public class Main {
     public static void main(String[] args) {
         List<Producto> lista = Arrays.asList(
@@ -36,5 +41,27 @@ public class Main {
 
         );
 
+        ProductoController controller = new ProductoController();
+        System.out.println("Productos ordenados");
+        TreeSet<Producto> ordenado = controller.ordenarProducto(lista);
+        for (Producto p : ordenado) {
+            System.out.println(ordenado);
+        }
+        System.out.println("Clasificado por Unicidad");
+        Set<Producto> ordenados = controller.ordenarProducto(lista);
+        Map<String, List<Producto>> clasificados = controller.clasificarPorUnicidad(ordenados);
+        for (Producto p : ordenado) {
+            System.out.println(clasificados);
+        }
+        System.out.println("Productos Destacados");
+        List<Producto> destacados = controller.obtenerDestacados(lista);
+        for (Producto p : destacados) {
+            System.out.println(destacados);
+        }
+        System.out.println("Buscar Por Nombre");
+        Producto buscado = controller.buscarPorNombre(ordenado, "Mouse Gamer");
+        for (Producto p : destacados) {
+            System.out.println("Persona encontrada " + buscado);
+        }
     }
 }
