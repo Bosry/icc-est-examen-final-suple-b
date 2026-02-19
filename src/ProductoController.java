@@ -44,13 +44,13 @@ public class ProductoController{
   }
 
   public List<Producto> obtenerDestacados(List<Producto> lista){
-    List<Producto> destacados = new ArrayList<Producto>();
+    List<Producto> destacados = new ArrayList<>();
     for (Producto p : lista) {
       if(p.cantidadPreciosRepetidos() > 0){
         destacados.add(p);
       }
     }
-    Collections.sort(destacados);
+    //Collections.sort(destacados);
     return destacados;
   }
 
@@ -66,7 +66,7 @@ public class ProductoController{
       } else if(comparacion < 0){
         inicio = medio + 1;
       } else {
-        fin = medio -1;
+        fin = medio - 1;
       }
     }
     return lista.get(fin);
